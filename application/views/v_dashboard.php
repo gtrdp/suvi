@@ -16,71 +16,22 @@
             <div class="row-fluid">
                 <div class="span6">
                     <div class="block">
-                        <?php if($xbee_no_device): ?>
                         <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">Relay Status</div>
-                            <div class="pull-right"><a href="add-device.php?device=xbee"> <span class="badge badge-success">Add Device</span></a></div>
-                        </div>
-                        <div class="block-content collapse in">
-                            <p>Sorry, no device installed.</p>
-                        </div>
-
-
-                        <?php else: ?>
-                        <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">Relay Status of ATMY <?php echo $atmy; ?></div>
-                            <div class="pull-right"><a href="device.php?device=xbee"> <span class="badge badge-warning">View More</span></a></div>
+                            <div class="muted pull-left">Address 29C5129</div>
+                            <div class="pull-right"><a href="#"> <span class="badge badge-warning">View More</span></a></div>
                         </div>
                         <div class="block-content collapse in">
                             <div class="span6">
-                                <div class="chart chart-relay" data-percent="<?php echo $relay1_percentage; ?>">
-                                    <span class="status-relay"><?php echo $relay1; ?></span>
+                                <div class="chart chart-relay" data-percent="0">
+                                    <span class="status-relay">OFF</span>
                                 </div>
                                 <div class="chart-bottom-heading">
-                                    <span class="label label-success">Relay 1</span><br><br>
-                                    <div atmy="<?php echo $atmy; ?>" relay-id="1" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                        <input class="relay-checkbox" type="checkbox" <?php echo $checked1; ?> >
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="span6">
-                                <div class="chart chart-relay" data-percent="<?php echo $relay2_percentage; ?>">
-                                    <span class="status-relay"><?php echo $relay2; ?></span>
-                                </div>
-                                <div class="chart-bottom-heading">
-                                    <span class="label label-info">Relay 2</span><br><br>
-                                    <div atmy="<?php echo $atmy; ?>" relay-id="2" class="make-switch switch-small button-relay" data-on="success" data-off="warning">
-                                        <input class="relay-checkbox" type="checkbox" <?php echo $checked2; ?> >
-                                    </div>
+                                    <span class="label label-info">29C5129</span><br><br>
+                                    <input address="29C5129" class="relay-checkbox switch-small" type="checkbox" data-on="success" data-off="warning">
                                 </div>
                             </div>
                         </div>
-                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="span6">
-                    <!-- block -->
-                    <div class="block">
-                        <?php if($iqrf_no_device): ?>
-                        <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">IQRF Temperature</div>
-                            <div class="pull-right"><a href="add-device.php?device=iqrf"> <span class="badge badge-success">Add Device</span></a></div>
-                        </div>
-                        <div class="block-content collapse in">
-                            <p>Sorry, no iqrf node bonded.</p>
-                        </div>
-                        <?php else: ?>
-                        <div class="navbar navbar-inner block-header">
-                            <div class="muted pull-left">IQRF Temperature</div>
-                            <div class="pull-right"><a href="device.php?device=iqrf"> <span class="badge badge-warning">View More</span></a></div>
-                        </div>
-                        <div class="block-content collapse in">
-                            <div node="<?php echo $node_address; ?>" class="temperatureGauge" style="height:180px"></div>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                    <!-- /block -->
                 </div>
             </div>
         </div>

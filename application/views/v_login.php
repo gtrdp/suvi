@@ -26,7 +26,6 @@
         </label>-->
         <button class="btn btn-large btn-primary" type="submit">Log in</button>
       </form>
-
     </div> <!-- /container -->
     <script src="vendors/jquery-1.9.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>

@@ -18,103 +18,42 @@
         <script>
         $(function() {
             // Easy pie charts
-            $('.chart').easyPieChart({animate: 3000, barColor: '#006600'});
+            $('.chart').easyPieChart({animate: 6650, barColor: '#006600'});
 
-            //boostrap-switch
-            $('.button-relay').on('switch-change', function () {
-                var value = $(this).parent().siblings('.chart-relay').attr('data-percent');
+            // Bootstrap Switch init
+            $('.relay-checkbox').bootstrapSwitch();
 
+            //boostrap-switch on switch change
+            $('.relay-checkbox').on('switch-change', function () {
+                var value = $(this).parent().parent().parent().siblings('.chart-relay').attr('data-percent');
+                
                 // Find status
-                $(this).parent().siblings('.chart-relay').find('.status-relay').text(value == 100 ? 'OFF':'ON');
+                $(this).parent().parent().parent().siblings('.chart-relay').find('.status-relay').text(value == 100 ? 'OFF':'ON');
                 // Update the pie chart
-                $(this).parent().siblings('.chart-relay').data('easyPieChart').update(100 - value);
+                $(this).parent().parent().parent().siblings('.chart-relay').data('easyPieChart').update(100 - value);
                 // Update the attribute
-                $(this).parent().siblings('.chart-relay').attr('data-percent', 100 - value);
+                $(this).parent().parent().parent().siblings('.chart-relay').attr('data-percent', 100 - value);
 
                 // Get the atmy and relay ID
-                var atmy = $(this).attr('atmy');
-                var relayID = $(this).attr('relay-id');
+                var address = $(this).attr('address');
 
                 //Ajax to change the XBee's relay
-                var status = $(this).find('.relay-checkbox').is(':checked')? 'on': 'off';
+                //var status = $(this).find('.relay-checkbox').is(':checked')? 'on': 'off';
+                var status = ($(this).bootstrapSwitch('state'))? 'on':'off' ;
                 console.log(status);
-                $.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
-            });
-        });
-        </script>
-        <script>
-        // Script for keep updating every 300 milisecond
-        $(document).ready(function(){
-            setInterval(function(){getTemperature()}, 300);
-        });
-
-        function getTemperature(){
-            $('.temperatureGauge').each(function(){
-                var theObject = $(this);
-                var nodeAddress = $(this).attr('node');
-
-                $.get("script/temperature.php?node=" + nodeAddress, function(data,status){
-                    var gauge = theObject.dxCircularGauge('instance');
-                    if(data){
-                        gauge.value(data);
-                        gauge.subvalues([data]);
-                    }
+                
+                // Disable the switch
+                $(this).bootstrapSwitch('toggleDisabled');
+                
+                //$.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
+                $.get('perl/switch.php?status=' + status + '&address=' + address, function(data, status){
+                    console.log(data + ' ' + status);
+                    $('.relay-checkbox').bootstrapSwitch('toggleDisabled');
                 });
+                // $.get('perl/switch.php?status=' + status + '&address=' + address);
             });
-        }
+        });
         </script>
-
-        <script type="text/javascript">
-            $(".temperatureGauge").dxCircularGauge({
-                scale: {
-                    startValue: 0,
-                    endValue: 60,
-                    majorTick: {
-                        color: 'black',
-                        tickInterval : 10
-                    },
-                    minorTick: {
-                        visible: true,
-                        color: 'black',
-                        tickInterval : 1
-                    }
-                },
-                rangeContainer: {
-                    backgroundColor: 'none',
-                    ranges: [
-                        {
-                            startValue: 0,
-                            endValue: 20,
-                            color: 'blue'
-                        },
-                        {
-                            startValue: 20,
-                            endValue: 40,
-                            color: 'green'
-                        },
-                        {
-                            startValue: 40,
-                            endValue: 60,
-                            color: 'red'
-                        }
-                    ],
-                    offset: 5,
-                },
-                subvalueIndicator: {
-                    type: 'textcloud',
-                    color: 'powderblue',
-                    text: {
-                        format: 'fixedPoint',
-                        precision: 1,
-                        font: {
-                            color: 'white'
-                        }
-                    }
-                },
-                value: 27,
-                subvalues: [27]
-            });
-        </script>  
 
         <?php elseif ($page == 'profile'): ?>
         <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
