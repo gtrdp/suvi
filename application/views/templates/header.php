@@ -25,7 +25,7 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="dashboard.php">{ WSN+IP }</a>
+                    <a class="brand" href="dashboard.php">{ SUVI }</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">

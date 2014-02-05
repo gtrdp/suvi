@@ -1,6 +1,6 @@
             <footer>
-                <p>Wireless Sensor Network and Internet Protocol Interoperability<br>
-                &copy; Guntur D Putra 2013</p>
+                <p>Smart bUilding for energy saVing in Indonesia<br>
+                &copy; 2014</p>
             </footer>
         </div>
         <!--/.fluid-container-->
