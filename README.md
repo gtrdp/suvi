@@ -1,7 +1,6 @@
 SUVI
 ====
-Smart bUilding for energy saVing in Indonesia.
-(c) 2014
+Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 Development Log
 ---------------
