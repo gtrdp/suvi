@@ -4,6 +4,14 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 Development Log
 ---------------
+Sun Feb  9 16:02:54 WIB 2014
+* Revising navigation (header and sidebar).
+* Adding graph using morris.js.
+* Revising dashboard: is now showing device list.
+* Adding about page.
+
+---
+
 Thu Feb  6 17:09:26 WIB 2014
 * Clone on laptop.
 * Merging log.md with README.
