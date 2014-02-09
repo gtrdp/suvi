@@ -4,16 +4,19 @@
             </footer>
         </div>
         <!--/.fluid-container-->
-        <script src="vendors/jquery-1.9.1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="bootstrap/js/bootstrap-switch.min.js"></script>
-        <script src="assets/scripts.js"></script>
+        <script src="<?php echo base_url(); ?>/vendors/jquery-1.9.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>/bootstrap/js/bootstrap-switch.min.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/scripts.js"></script>
 
         <?php if ($page == 'dashboard'): ?>
-        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/knockout-3.0.0.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/globalize.min.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/dx.chartjs.js"></script>
+        <script src="<?php echo base_url(); ?>/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/knockout-3.0.0.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/globalize.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/dx.chartjs.js"></script>
+
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/raphael-min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/morris.min.js"></script>
     
         <script>
         $(function() {
@@ -53,21 +56,44 @@
                 // $.get('perl/switch.php?status=' + status + '&address=' + address);
             });
         });
+
+        // Morris Area Chart
+        Morris.Area({
+            element: 'hero-area',
+            data: [
+                {period: '2012-02-24 13:00', power: 2666},
+                {period: '2012-02-24 14:00', power: 2778},
+                {period: '2012-02-24 15:00', power: 4912},
+                {period: '2012-02-24 16:00', power: 3767},
+                {period: '2012-02-24 17:00', power: 6810},
+                {period: '2012-02-24 18:00', power: 5670},
+                {period: '2012-02-24 19:00', power: 4820},
+                {period: '2012-02-24 20:00', power: 15073},
+                {period: '2012-02-24 21:00', power: 10687},
+                {period: '2012-02-24 22:00', power: 8432}
+            ],
+            xkey: 'period',
+            ykeys: ['power'],
+            labels: ['Power Usage'],
+            lineWidth: 2,
+            hideHover: 'auto',
+            lineColors: ["#81d5d9"]
+          });
         </script>
 
         <?php elseif ($page == 'profile'): ?>
-        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/knockout-3.0.0.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/globalize.min.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/dx.chartjs.js"></script>
+        <script src="<?php echo base_url(); ?>/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/knockout-3.0.0.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/globalize.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/dx.chartjs.js"></script>
         
-        <script src="vendors/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url(); ?>/vendors/bootstrap-datepicker.js"></script>
         <link href="vendors/datepicker.css" rel="stylesheet" media="screen">
 
-        <script src="vendors/jquery.timepicker.js"></script>
+        <script src="<?php echo base_url(); ?>/vendors/jquery.timepicker.js"></script>
         <link href="vendors/jquery.timepicker.css" rel="stylesheet" media="screen">
 
-        <script type="text/javascript" src="vendors/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/jquery.mousewheel.js"></script>
         
         <script>
         $(function() {
@@ -192,9 +218,9 @@
         </script>
 
         <?php elseif ($page == 'iqrf'): ?>
-        <script type="text/javascript" src="vendors/chartjs/knockout-3.0.0.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/globalize.min.js"></script>
-        <script type="text/javascript" src="vendors/chartjs/dx.chartjs.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/knockout-3.0.0.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/globalize.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/chartjs/dx.chartjs.js"></script>
 
         <script type="text/javascript">
             $(".temperatureGauge").dxCircularGauge({
@@ -273,7 +299,7 @@
 
 
         <?php if ($page == 'iqrf' || $page == 'xbee'): ?>
-        <script type="text/javascript" src="vendors/spin.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/vendors/spin.min.js"></script>
 
         <script type="text/javascript">
             var opts = {
