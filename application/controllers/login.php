@@ -22,6 +22,11 @@ class Login extends CI_Controller {
 		$data['error'] = '';
 		$this->load->view('v_login', $data);
 	}
+
+	public function logout()
+	{
+		redirect('login');
+	}
 }
 
 /* End of file welcome.php */

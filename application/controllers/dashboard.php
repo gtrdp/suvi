@@ -21,15 +21,22 @@ class Dashboard extends CI_Controller {
 	{
 		$data['page'] = 'dashboard';
 		$data['full_name'] = 'Guntur D Putra';
-		$data['superuser'] = 1;
 
 		// Variable for
 		$this->load->template('v_dashboard', $data);
 	}
 
-	public function wawa()
+	public function view($id = '')
 	{
-		return 'hash_algos(oid)';
+		if($id == '' || strlen($id) < 7)
+			redirect('dashboard');
+
+		$data['page'] = 'dashboard';
+		$data['full_name'] = 'Guntur D Putra';
+
+		$data['id'] = $id;
+
+		$this->load->template('v_view', $data);
 	}
 }
 

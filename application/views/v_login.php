@@ -16,7 +16,7 @@
     <div class="container">
 
       <form class="form-signin" action="<?php echo site_url('dashboard'); ?>" method="post">
-        <h2 class="form-signin-heading">Please Log in</h2>
+        <h2 class="form-signin-heading">SUVI</h2>
         <?php echo $error;?>
         <input type="text" name="username"
           class="input-block-level" placeholder="Username" value="<?php if(isset($username)) echo $username; ?>">
@@ -27,6 +27,7 @@
         <button class="btn btn-large btn-primary" type="submit">Log in</button>
       </form>
     </div> <!-- /container -->
+    
     <script src="vendors/jquery-1.9.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
