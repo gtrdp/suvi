@@ -38,15 +38,14 @@
                 var address = $(this).attr('address');
 
                 //Ajax to change the XBee's relay
-                //var status = $(this).find('.relay-checkbox').is(':checked')? 'on': 'off';
-                var status = ($(this).bootstrapSwitch('state'))? 'on':'off' ;
+                var command = ($(this).bootstrapSwitch('state'))? 'on':'off' ;
                 console.log(status);
                 
                 // Disable the switch
                 $(this).bootstrapSwitch('toggleDisabled');
                 
                 //$.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
-                $.get('perl/switch.php?status=' + status + '&address=' + address, function(data, status){
+                $.get('perl/switch.php?command=' + command + '&address=' + address, function(data, status){
                     console.log(data + ' ' + status);
                     $('.relay-checkbox').bootstrapSwitch('toggleDisabled');
                 });

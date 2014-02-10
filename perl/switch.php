@@ -3,17 +3,15 @@
  * Script to turn ON or OFF specific plugwise device
  * 
  * input:
- * * status
+ * * command
  * * address
  */
 
-$status = $_GET['status'];
+$command = $_GET['command'];
 $address = $_GET['address'];
 
-echo $status.$address;
+echo $command.$address;
 
-$foo = shell_exec('sudo perl /var/www/suvi/perl/turn_on_off.pl ' . $status . ' ' . $address);
+$foo = shell_exec('sudo perl /var/www/suvi/perl/turn_on_off.pl ' . $command . ' ' . $address);
 echo $foo;
-
-echo shell_exec('whoami');
 ?>
