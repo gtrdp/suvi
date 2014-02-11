@@ -2,6 +2,11 @@ SUVI
 ====
 Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
+To-Do
+-----
+* Fully working business process.
+* Add User.
+
 Development Log
 ---------------
 Tue Feb 11 12:14:19 WIB 2014
