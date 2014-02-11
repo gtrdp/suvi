@@ -48,7 +48,7 @@
                 $(this).bootstrapSwitch('toggleDisabled');
                 
                 //$.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
-                $.get('perl/switch.php?command=' + command + '&address=' + address, function(data, status){
+                $.get('<?php echo base_url();?>/perl/switch.php?command=' + command + '&address=' + address, function(data, status){
                     console.log(data + ' ' + status);
                     $('.relay-checkbox').bootstrapSwitch('toggleDisabled');
                 });
@@ -60,6 +60,18 @@
         Morris.Area({
             element: 'hero-area',
             data: [
+                {period: '2012-02-24 01:00', power: 3728},
+                {period: '2012-02-24 02:00', power: 3856},
+                {period: '2012-02-24 03:00', power: 4675},
+                {period: '2012-02-24 04:00', power: 9237},
+                {period: '2012-02-24 05:00', power: 5329},
+                {period: '2012-02-24 06:00', power: 2347},
+                {period: '2012-02-24 07:00', power: 6942},
+                {period: '2012-02-24 08:00', power: 3592},
+                {period: '2012-02-24 09:00', power: 4624},
+                {period: '2012-02-24 10:00', power: 9806},
+                {period: '2012-02-24 11:00', power: 6423},
+                {period: '2012-02-24 12:00', power: 6448},
                 {period: '2012-02-24 13:00', power: 2666},
                 {period: '2012-02-24 14:00', power: 2778},
                 {period: '2012-02-24 15:00', power: 4912},
@@ -69,7 +81,9 @@
                 {period: '2012-02-24 19:00', power: 4820},
                 {period: '2012-02-24 20:00', power: 15073},
                 {period: '2012-02-24 21:00', power: 10687},
-                {period: '2012-02-24 22:00', power: 8432}
+                {period: '2012-02-24 22:00', power: 8432},
+                {period: '2012-02-24 23:00', power: 7632},
+                {period: '2012-02-24 24:00', power: 9432}
             ],
             xkey: 'period',
             ykeys: ['power'],

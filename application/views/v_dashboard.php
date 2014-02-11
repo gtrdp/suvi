@@ -16,6 +16,7 @@
                                     <p>Charger Notebook.</p>
                                     <p>
                                       <a href="<?php echo site_url('dashboard/view/29C5129'); ?>" class="btn btn-success">View</a>
+                                      <a href="#" class="btn btn-warning">Edit</a>
                                       <a href="#" class="btn btn-danger">Delete</a>
                                     </p>
                                   </div>
@@ -29,6 +30,7 @@
                                     <p>Refridgerator.</p>
                                     <p>
                                       <a href="<?php echo site_url('dashboard/view/28FC922'); ?>" class="btn btn-success">View</a>
+                                      <a href="#" class="btn btn-warning">Edit</a>
                                       <a href="#" class="btn btn-danger">Delete</a>
                                     </p>
                                   </div>
@@ -42,6 +44,7 @@
                                     <p>Microwave.</p>
                                     <p>
                                       <a href="<?php echo site_url('dashboard/view/29077DD'); ?>" class="btn btn-success">View</a>
+                                      <a href="#" class="btn btn-warning">Edit</a>
                                       <a href="#" class="btn btn-danger">Delete</a>
                                     </p>
                                   </div>

@@ -4,6 +4,17 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 Development Log
 ---------------
+Tue Feb 11 12:14:19 WIB 2014
+* Adding Edit Button.
+* History OK: Done by upgrading the Plugwise.pm version using commands (Thanks to Mas Azka):
+
+		sudo cpan Device::Plugwise
+
+* Adding regex to fetch the desired history information for further process.
+
+
+---
+
 Sun Feb  9 16:02:54 WIB 2014
 * Revising navigation (header and sidebar).
 * Adding graph using morris.js.
