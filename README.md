@@ -4,6 +4,13 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 Development Log
 ---------------
+Mon Feb 17 21:31:10 WIB 2014
+* Constructing System logic (CRUD)
+* Login OK
+* Creating database
+
+---
+
 Sun Feb  9 16:02:54 WIB 2014
 * Revising navigation (header and sidebar).
 * Adding graph using morris.js.

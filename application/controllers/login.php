@@ -2,29 +2,45 @@
 
 class Login extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->model('m_login');
+	}
+
 	public function index()
 	{
-		$data['error'] = '';
+		//check login
+		$user = $this->session->userdata('userid');
+		
+		if($user)
+			redirect('dashboard');
+		
+		$data['notif'] = $this->session->flashdata('notif');
 		$this->load->view('v_login', $data);
+	}
+
+	public function process()
+	{
+		$result = $this->m_login->cek_login();
+
+		if(count($result)){
+			$this->session->set_userdata('userid', $result->id);
+			$this->session->set_userdata('nama', $result->nama);
+			
+			redirect('dashboard');
+		}else{
+			$this->session->set_flashdata('notif', 'Username atau password salah!');
+
+			redirect('login');
+		}
+
 	}
 
 	public function logout()
 	{
+		$this->session->sess_destroy();
 		redirect('login');
 	}
 }

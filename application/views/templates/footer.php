@@ -49,11 +49,11 @@
                 $(this).bootstrapSwitch('toggleDisabled');
                 
                 //$.get('script/action.php?status=' + status + '&relay=' + relayID + '&atmy=' + atmy);
-                $.get('perl/switch.php?status=' + status + '&address=' + address, function(data, status){
+                $.get('script/switch.php?status=' + status + '&address=' + address, function(data, status){
                     console.log(data + ' ' + status);
                     $('.relay-checkbox').bootstrapSwitch('toggleDisabled');
                 });
-                // $.get('perl/switch.php?status=' + status + '&address=' + address);
+                // $.get('script/switch.php?status=' + status + '&address=' + address);
             });
         });
 
