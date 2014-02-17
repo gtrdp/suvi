@@ -8,4 +8,14 @@ class M_core extends CI_Model {
         parent::__construct();
     }
 
+    function get_all_devices()
+    {
+    	return $this->db->get('device');
+    }
+
+    function delete_device($address = '')
+    {
+    	if($address != '')
+    		$this->db->delete('device', array('address' => $address));
+    }
 }

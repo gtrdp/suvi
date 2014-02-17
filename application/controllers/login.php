@@ -28,6 +28,8 @@ class Login extends CI_Controller {
 		if(count($result)){
 			$this->session->set_userdata('userid', $result->id);
 			$this->session->set_userdata('nama', $result->nama);
+
+			$this->session->set_flashdata('notif', 'Welcome back, ' . $result->nama . '!');
 			
 			redirect('dashboard');
 		}else{
