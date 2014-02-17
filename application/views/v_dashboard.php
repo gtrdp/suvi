@@ -32,6 +32,7 @@
                                     <p><?php echo $row->description ?></p>
                                     <p>
                                       <a href="<?php echo site_url('dashboard/view/2'.$row->address); ?>" class="btn btn-success">View</a>
+                                      <a href="#" class="btn btn-warning">Edit</a>
                                       <a onclick="deleteDevice('<?php echo $row->address; ?>')" class="btn btn-danger">Delete</a>
                                     </p>
                                   </div>

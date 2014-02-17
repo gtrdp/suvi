@@ -2,6 +2,11 @@ SUVI
 ====
 Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
+To-Do
+-----
+* Fully working business process.
+* Add User.
+
 Development Log
 ---------------
 Mon Feb 17 21:31:10 WIB 2014
@@ -11,6 +16,16 @@ Mon Feb 17 21:31:10 WIB 2014
 * Add Device OK
 * Adding scheduling layout on View Device detail
 * Creating database
+
+---
+
+Tue Feb 11 12:14:19 WIB 2014
+* Adding Edit Button.
+* History OK: Done by upgrading the Plugwise.pm version using commands (Thanks to Mas Azka):
+
+		sudo cpan Device::Plugwise
+
+* Adding regex to fetch the desired history information for further process.
 
 ---
 

@@ -21,7 +21,7 @@ my $plugwise = Device::Plugwise->new( device => $device );
 my $msg;
 
 #kirim command
-$plugwise->command( $command, $ARGV[1] ); #ID circle
+$plugwise->command( $command, $ARGV[1], $ARGV[2]); #ID circle
 
 # Ensure to process all reads
 PROCESS_READS: do {

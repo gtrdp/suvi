@@ -11,13 +11,11 @@ $command = $_GET['command'];
 $address = $_GET['address'];
 $array	 = $_GET['array'];
 
-echo $command.$address;
-
-$foo = shell_exec('sudo perl /var/www/suvi/perl/turn_on_off.pl ' . $command . ' ' . $address . ' ' . $array);
+$string = "Sending history... Response: $VAR1 = { 'body' => [ 'device', '29C5129', 'type', 'energy', 'current', '0', 'units', 'kWh', 'datetime', '201402080200' ], 'schema' => 'plugwise.basic' };";
 
 if($command == 'history') {
-	$foo = preg_replace('/\s+/', '', $foo);
-	var_dump(preg_match('(\[(.*?)\])', $foo, $matches));
+	
+	var_dump(preg_match('(\[(.*?)\])', $string, $matches));
 	echo $matches[1];
 
 	var_dump(preg_match_all("(\'(.*?)\')", $matches[1], $hasil));
