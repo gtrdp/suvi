@@ -8,6 +8,8 @@ Mon Feb 17 21:31:10 WIB 2014
 * Constructing System logic (CRUD)
 * Login OK
 * Dashboard is now connected to database
+* Add Device OK
+* Adding scheduling layout on View Device detail
 * Creating database
 
 ---

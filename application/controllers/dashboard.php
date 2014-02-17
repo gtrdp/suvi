@@ -27,15 +27,15 @@ class Dashboard extends CI_Controller {
 		$this->load->template('v_dashboard', $data);
 	}
 
-	public function view($id = '')
+	public function view($address = '')
 	{
-		if($id == '' || strlen($id) < 7)
+		if($address == '' || strlen($address) < 7)
 			redirect('dashboard');
 
 		$data['page'] = 'dashboard';
 		$data['full_name'] = 'Guntur D Putra';
 
-		$data['id'] = $id;
+		$data['address'] = $address;
 
 		$this->load->template('v_view', $data);
 	}
