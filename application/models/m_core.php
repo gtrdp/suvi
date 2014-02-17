@@ -18,4 +18,16 @@ class M_core extends CI_Model {
     	if($address != '')
     		$this->db->delete('device', array('address' => $address));
     }
+
+    function add_device($address = '', $description = '')
+    {
+        if($address != '' && $description != '') {
+            $data = array(
+                        'address' => strtoupper($address),
+                        'description' => $description
+                    );
+
+            $this->db->insert('device', $data);
+        }
+    }
 }
