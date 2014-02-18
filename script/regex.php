@@ -15,11 +15,14 @@ $string = "Sending history... Response: $VAR1 = { 'body' => [ 'device', '29C5129
 
 if($command == 'history') {
 	
-	var_dump(preg_match('(\[(.*?)\])', $string, $matches));
-	echo $matches[1];
+	preg_match('(\[(.*?)\])', $string, $matches);
 
-	var_dump(preg_match_all("(\'(.*?)\')", $matches[1], $hasil));
-	var_dump($hasil);
+	preg_match_all("(\'(.*?)\')", $matches[1], $hasil);
+
+	$current = $hasil[1][5];
+	$units = $hasil[1][7];
+
+	echo $current . ' ' . $units;
 }else{
 	echo $foo;
 }
