@@ -18,12 +18,43 @@ class Add extends CI_Controller {
 		$data['page'] = 'add';
 		$data['full_name'] = $this->session->userdata('nama');
 		$data['notif'] = $this->session->flashdata('notif');
+		$data['type'] = 'Add New';
+		$data['action'] = site_url('add/process');
 
 		// Variable for
 		$this->load->template('v_add', $data);
 	}
 
 	public function process()
+	{
+		$address = $this->input->post('address');
+		$description = $this->input->post('description');
+
+		if($address != '' && $description != '') {
+			$this->m_core->add_device($address, $description);
+			$this->session->set_flashdata('notif', 'Device has been successfully inserted!');
+		}
+
+		redirect('add');
+	}
+
+	public function edit($address = '')
+	{
+		if($address == '')
+			redirect('dashboard');
+
+		$data['page'] = 'dashboard';
+		$data['full_name'] = $this->session->userdata('nama');
+		$data['notif'] = $this->session->flashdata('notif');
+		$data['type'] = 'Edit';
+		$data['device'] = $this->m_core->get_device($address)->row();
+		$data['action'] = site_url('add/edit_process');
+
+		// Variable for
+		$this->load->template('v_add', $data);
+	}
+
+	public function edit_process()
 	{
 		$address = $this->input->post('address');
 		$description = $this->input->post('description');

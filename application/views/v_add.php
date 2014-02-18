@@ -10,22 +10,22 @@
 	            <!-- block -->
 	            <div class="block">
 	                <div class="navbar navbar-inner block-header">
-	                    <div class="muted pull-left">Add New Plugwise Device</div>
+	                    <div class="muted pull-left"><?php echo $type; ?> Plugwise Device</div>
 	                </div>
 	                <div class="block-content collapse in">
 	                    <div class="span12">
-	                         <form class="form-horizontal" method="post" action="<?php echo site_url('add/process'); ?>">
+	                         <form class="form-horizontal" method="post" action="<?php echo $action; ?>">
 	                            <legend>Device Information</legend>
 	                            <div class="control-group">
 	                              <label class="control-label">Address</label>
 	                              <div class="controls">
-	                                <input name="address" class="input-xlarge focused" type="text">
+	                                <input name="address" class="input-xlarge focused" type="text" value="<?php if(isset($device)) echo $device->address; ?>">
 	                              </div>
 	                            </div>
 	                            <div class="control-group">
 	                              <label class="control-label">Description</label>
 	                              <div class="controls">
-	                                <textarea class="input-xlarge focused" name="description" rows="5"></textarea>
+	                                <textarea class="input-xlarge focused" name="description" rows="5"><?php if(isset($device)) echo $device->description; ?></textarea>
 	                              </div>
 	                            </div>
 	                            <div class="control-group">

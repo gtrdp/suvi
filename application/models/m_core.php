@@ -30,4 +30,11 @@ class M_core extends CI_Model {
             $this->db->insert('device', $data);
         }
     }
+
+    function get_device($address = '')
+    {
+        if($address != '') {
+            return $this->db->get_where('device', array('address' => substr($address, 1)));
+        }
+    }
 }

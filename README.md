@@ -4,11 +4,15 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 To-Do
 -----
-* Fully working business process.
-* Add User.
+* Database.
 
 Development Log
 ---------------
+Tue Feb 18 16:28:45 WIB 2014
+* Add Edit Page (50% working).
+
+---
+
 Mon Feb 17 21:31:10 WIB 2014
 * Constructing System logic (CRUD)
 * Login OK
