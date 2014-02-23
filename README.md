@@ -4,7 +4,7 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 To-Do
 -----
-* Cronjob.
+* Scheduling.
 * Edit device (still connecting to insert).
 * Fetch on/off status in view device.
 
