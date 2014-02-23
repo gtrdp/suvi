@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.1.7
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2014 at 01:24 AM
--- Server version: 5.5.27-log
--- PHP Version: 5.4.17
+-- Generation Time: Feb 23, 2014 at 12:01 PM
+-- Server version: 5.5.35-0ubuntu0.12.04.2
+-- PHP Version: 5.3.10-1ubuntu3.9
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -33,17 +33,33 @@ CREATE TABLE IF NOT EXISTS `device` (
   `img` varchar(30) NOT NULL DEFAULT 'default.png',
   `status` varchar(3) NOT NULL DEFAULT 'off',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `device`
 --
 
 INSERT INTO `device` (`id`, `address`, `description`, `img`, `status`) VALUES
-(1, '9C5129', 'Charger notebooknya mas azka.', 'default.png', 'off'),
-(2, '8FC922', 'Kulkas yang full dengan logistik.', 'default.png', 'off'),
+(2, '8FC922', 'Kulkas yang full dengan logistik.', 'default.png', 'on'),
 (3, '9077DD', 'Microwave yang siap untuk ngangetin makanan.', 'default.png', 'off'),
-(5, '90761B', 'Lampu Jarkom.', 'default.png', 'off');
+(7, '9C5129', 'Charger laptop.', 'default.png', 'off'),
+(8, '9077DB', 'Printer.', 'default.png', 'on');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE IF NOT EXISTS `history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `device_address` varchar(6) NOT NULL DEFAULT '000000',
+  `array` int(11) NOT NULL,
+  `device_datetime` varchar(12) NOT NULL,
+  `current` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
