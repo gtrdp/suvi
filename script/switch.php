@@ -45,6 +45,20 @@ if($command == 'history') {
 	header("Content-type: text/xml; charset=utf-8");
 	echo '<?xml version="1.0" encoding="UTF-8"?>';
 	echo '<plugwise><result status="'.$status.'" array="'.$array.'" datetime="'.$datetime.'"/></plugwise>';
+}elseif($command == 'on' || $command == 'off'){
+	// update the database
+	$conn = mysql_connect('localhost', 'root', 'secret123') or die(mysql_error());
+	mysql_select_db('suvi');
+
+	// strip '2' prefix
+	$address = substr($address, 1);
+
+	if(mysql_query("UPDATE device SET status = '$command' WHERE address = '$address'"))
+		echo "Updated.";
+	else
+		echo mysql_error();
+
+	mysql_close($conn);
 }else{
 	echo $foo;
 }

@@ -10,6 +10,7 @@ Development Log
 ---------------
 Sun Feb 23 08:37:20 WIB 2014
 * Adding update database script.
+* Turn on off device now supports db updating (but dashboard still doesn't support it, need to fetch).
 
 ---
 
