@@ -11,11 +11,11 @@ $command = $_GET['command'];
 $address = $_GET['address'];
 $array	 = $_GET['array'];
 
-// echo $command.$address;
-
+// Grab data from specified device
 $foo = shell_exec('sudo perl /var/www/suvi/script/turn_on_off.pl ' . $command . ' ' . $address . ' ' . $array);
 
 if($command == 'history') {
+	// grab history
 	$foo = trim(preg_replace('/\s+/', ' ', $foo));
 
 	preg_match('(\[(.*?)\])', $foo, $matches);
@@ -25,9 +25,12 @@ if($command == 'history') {
 	$current = $hasil[1][5];
 	$units = $hasil[1][7];
 
+	// set HTTP header
+	header("Content-type: text/xml; charset=utf-8");
 	echo '<?xml version="1.0" encoding="UTF-8"?>';
 	echo '<plugwise><result current="'.$current.'" units="'.$units.'"/></plugwise>';
 }elseif($command == 'status') {
+	// grab status
 	$foo = trim(preg_replace('/\s+/', ' ', $foo));
 
 	preg_match('(\[(.*?)\])', $foo, $matches);
@@ -38,6 +41,8 @@ if($command == 'history') {
 	$array = $hasil[1][7];
 	$datetime = $hasil[1][9];
 
+	// set HTTP header
+	header("Content-type: text/xml; charset=utf-8");
 	echo '<?xml version="1.0" encoding="UTF-8"?>';
 	echo '<plugwise><result status="'.$status.'" array="'.$array.'" datetime="'.$datetime.'"/></plugwise>';
 }else{

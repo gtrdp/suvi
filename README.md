@@ -8,8 +8,14 @@ To-Do
 
 Development Log
 ---------------
+Sun Feb 23 08:37:20 WIB 2014
+* Adding update database script.
+
+---
+
 Tue Feb 18 16:28:45 WIB 2014
 * Add Edit Page (50% working).
+* Regex extraction.
 
 ---
 
