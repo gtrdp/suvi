@@ -5,7 +5,7 @@
  *  	1. fetch all registered device
  *   	2. for each device:
  *    		a. fetch current array (n)
- *      	b. get history of n-1
+ *      	b. get history of n-2
  *       	c. store it in the database
  */
 
@@ -77,9 +77,9 @@ while ($row = mysql_fetch_object($result)) {
 	if($current_array['datetime'] != NULL) {
 		// parse variable
 		$device_datetime = $current_array['datetime'];
-		$array_to_fetch = $current_array['array'] - 1;
+		$array_to_fetch = $current_array['array'] - 2;
 
-		// get n-1 history
+		// get n-2 history
 		$history = get_history($device_address, $array_to_fetch);
 
 		// continue only if not null

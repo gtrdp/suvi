@@ -4,13 +4,20 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 To-Do
 -----
-* Database.
+* Cronjob.
+* Edit device (still connecting to insert).
+* Fetch on/off status in view device.
+
 
 Development Log
 ---------------
 Sun Feb 23 08:37:20 WIB 2014
 * Adding update database script.
 * Turn on off device now supports db updating (but dashboard still doesn't support it, need to fetch).
+* New sql dump: with history table.
+* How to set crontab:
+
+		http://www.ubuntututorials.com/use-crontab-ubuntu/
 
 ---
 
