@@ -37,6 +37,20 @@ class Dashboard extends CI_Controller {
 
 		$data['address'] = $address;
 
+		// get on off status of the device
+		$status = $this->m_core->get_device_status($address)->row()->status;
+		$data['status_relay'] = strtoupper($status);
+
+		if($status == 'on'){
+			$data['data_percent'] = 100;
+			$data['checked'] = 'checked';
+		}else{
+			$data['data_percent'] = 0;
+			$data['checked'] = '';
+		}
+
+		$data['history'] = $this->m_core->get_device_history($address);
+		
 		$this->load->template('v_view', $data);
 	}
 

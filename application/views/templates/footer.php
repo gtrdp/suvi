@@ -51,40 +51,26 @@
 
                 $.get('<?php echo base_url();?>/script/switch.php?command=' + command + '&address=' + address, function(data, status){
                     console.log(data + ' ' + status);
-                    $('.relay-checkbox').bootstrapSwitch('toggleDisabled');
+                    $('#switch-on-off').bootstrapSwitch('toggleDisabled');
                 });
                 // $.get('script/switch.php?status=' + status + '&address=' + address);
             });
         });
-
+        <?php if(isset($address)): ?>
         // Morris Area Chart
         Morris.Area({
             element: 'hero-area',
             data: [
-                {period: '2012-02-24 01:00', power: 3.728},
-                {period: '2012-02-24 02:00', power: 3.856},
-                {period: '2012-02-24 03:00', power: 4.675},
-                {period: '2012-02-24 04:00', power: 9.237},
-                {period: '2012-02-24 05:00', power: 5.329},
-                {period: '2012-02-24 06:00', power: 2.347},
-                {period: '2012-02-24 07:00', power: 6.942},
-                {period: '2012-02-24 08:00', power: 3.592},
-                {period: '2012-02-24 09:00', power: 4.624},
-                {period: '2012-02-24 10:00', power: 9.806},
-                {period: '2012-02-24 11:00', power: 6.423},
-                {period: '2012-02-24 12:00', power: 6.448},
-                {period: '2012-02-24 13:00', power: 2.666},
-                {period: '2012-02-24 14:00', power: 2.778},
-                {period: '2012-02-24 15:00', power: 4.912},
-                {period: '2012-02-24 16:00', power: 3.767},
-                {period: '2012-02-24 17:00', power: 6.810},
-                {period: '2012-02-24 18:00', power: 5.670},
-                {period: '2012-02-24 19:00', power: 4.820},
-                {period: '2012-02-24 20:00', power: 1.5073},
-                {period: '2012-02-24 21:00', power: 1.0687},
-                {period: '2012-02-24 22:00', power: 8.432},
-                {period: '2012-02-24 23:00', power: 7.632},
-                {period: '2012-02-24 24:00', power: 9.432}
+            <?php
+                foreach ($history->result() as $row) {
+                    if(is_numeric($row->current))
+                        $current = $row->current;
+                    else
+                        $current = 0;
+
+                    echo "{period: '".substr($row->datetime, 0, -3) . "', power: " . $current . "},";
+                }
+            ?>
             ],
             xkey: 'period',
             ykeys: ['power'],
@@ -93,6 +79,7 @@
             hideHover: 'auto',
             lineColors: ["#81d5d9"]
           });
+        <?php endif; ?>
         </script>
 
         <?php elseif ($page == 'profile'): ?>

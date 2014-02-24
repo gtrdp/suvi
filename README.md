@@ -6,11 +6,15 @@ To-Do
 -----
 * Scheduling.
 * Edit device (still connecting to insert).
-* Fetch on/off status in view device.
 
 
 Development Log
 ---------------
+Mon Feb 24 11:23:34 WIB 2014
+* View device is now connected to database.
+
+---
+
 Sun Feb 23 08:37:20 WIB 2014
 * Adding update database script.
 * Turn on off device now supports db updating (but dashboard still doesn't support it, need to fetch).

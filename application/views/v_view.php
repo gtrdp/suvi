@@ -8,12 +8,12 @@
                         </div>
                         <div class="block-content collapse in">
                             <div class="span3">
-                                <div class="chart chart-relay" data-percent="0">
-                                    <span class="status-relay">OFF</span>
+                                <div class="chart chart-relay" data-percent="<?php echo $data_percent; ?>">
+                                    <span class="status-relay"><?php echo $status_relay; ?></span>
                                 </div>
                                 <div class="chart-bottom-heading">
                                     <span class="label label-info"><?php echo $address;?></span><br><br>
-                                    <input address="<?php echo $address;?>" class="relay-checkbox switch-small" type="checkbox" data-on="success" data-off="warning">
+                                    <input address="<?php echo $address;?>" id="switch-on-off" class="relay-checkbox switch-small" type="checkbox" data-on="success" data-off="warning" <?php echo $checked; ?>>
                                 </div>
                             </div>
                             <div class="span9" id="hero-area" style="height: 200px;"></div>
