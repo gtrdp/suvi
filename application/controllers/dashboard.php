@@ -78,6 +78,7 @@ class Dashboard extends CI_Controller {
 				}
 
 				// write to file
+				shell_exec("rm coba");
 				echo shell_exec("echo '".$string."' >> coba");
 				// execute crontab
 				echo shell_exec("crontab coba");

@@ -1,16 +1,4 @@
 @hourly php /var/www/suvi/script/update-db.php
-*/6 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 180
-*/3 * * * * sudo perl /var/www/suvi/script/schedule.pl 29C5129 120
-
-@hourly php /var/www/suvi/script/update-db.php
-*/60 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 3000
-*/3 * * * * sudo perl /var/www/suvi/script/schedule.pl 29C5129 120
-
-@hourly php /var/www/suvi/script/update-db.php
-*/60 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 3000
-*/2 * * * * sudo perl /var/www/suvi/script/schedule.pl 29C5129 60
-
-@hourly php /var/www/suvi/script/update-db.php
-*/2 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 60
+*/60 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 2400
 */2 * * * * sudo perl /var/www/suvi/script/schedule.pl 29C5129 60
 
