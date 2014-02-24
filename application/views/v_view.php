@@ -1,5 +1,11 @@
 <!--/span-->
         <div class="span9" id="content">
+            <?php if($notif):?>
+            <div class="alert alert-block alert-success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <?php echo $notif;?>
+            </div>
+            <?php endif; ?>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="block">
@@ -30,23 +36,27 @@
                     </div>
                     <div class="block-content collapse in">
                         <div class="span12">
-                             <form class="form-horizontal" method="post" action="<?php echo site_url('add/process'); ?>">
+                             <form class="form-horizontal" method="post" action="<?php echo site_url('dashboard/schedule_process'); ?>">
                                 <legend>
                                     Scheduling
-                                    <input class="relay-checkbox switch-small" type="checkbox">
+                                    <!--<input class="relay-checkbox switch-small" type="checkbox">-->
                                 </legend>
                                 <div class="control-group">
                                   <label class="control-label">ON Period</label>
                                   <div class="controls">
-                                    <input name="on-period" class="input-xlarge focused" type="text">
+                                    <input name="schedule_on" class="input-xlarge focused" type="text" value="<?php echo $schedule_on; ?>">
+                                    minute(s)
                                   </div>
                                 </div>
                                 <div class="control-group">
                                   <label class="control-label">OFF Period</label>
                                   <div class="controls">
-                                    <input name="off-period" class="input-xlarge focused" type="text">
+                                    <input name="schedule_off" class="input-xlarge focused" type="text" value="<?php echo $schedule_off; ?>">
+                                    minute(s)
                                   </div>
                                 </div>
+
+                                <input name="address" type="hidden" value="<?php echo $address; ?>">
                                 
                                 <div class="form-actions">
                                   <button type="submit" class="btn btn-primary">Set</button>

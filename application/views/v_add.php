@@ -19,7 +19,7 @@
 	                            <div class="control-group">
 	                              <label class="control-label">Address</label>
 	                              <div class="controls">
-	                                <input name="address" class="input-xlarge focused" type="text" value="<?php if(isset($device)) echo $device->address; ?>">
+	                                <input name="address" class="input-xlarge focused" type="text" value="<?php if(isset($device)) echo $device->address; ?>" <?php echo $disabled; ?>>
 	                              </div>
 	                            </div>
 	                            <div class="control-group">
@@ -34,9 +34,13 @@
 	                                <input name="img" class="input-xlarge focused" type="file">
 	                              </div>
 	                            </div>
+
+	                            <?php if($disabled == 'disabled'): ?>
+	                            	<input type="hidden" name="address" value="<?php if(isset($device)) echo $device->address; ?>">
+	                        	<?php endif;?>
 	                            
 	                            <div class="form-actions">
-	                              <button type="submit" class="btn btn-primary">Add Device</button>
+	                              <button type="submit" class="btn btn-primary"><?php echo $button;?></button>
 	                              <button type="reset" class="btn">Cancel</button>
 	                            </div>
 	                         </form>

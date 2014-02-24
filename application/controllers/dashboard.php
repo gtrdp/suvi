@@ -34,7 +34,7 @@ class Dashboard extends CI_Controller {
 
 		$data['page'] = 'dashboard';
 		$data['full_name'] = 'Guntur D Putra';
-
+		$data['notif'] = $this->session->flashdata('notif');
 		$data['address'] = $address;
 
 		// get on off status of the device
@@ -49,9 +49,44 @@ class Dashboard extends CI_Controller {
 			$data['checked'] = '';
 		}
 
+		// get device schedule
+		$schedule = $this->m_core->get_device_schedule($address);
+		$data['schedule_on'] = $schedule->schedule_on;
+		$data['schedule_off'] = $schedule->schedule_off;
+
 		$data['history'] = $this->m_core->get_device_history($address);
 		
 		$this->load->template('v_view', $data);
+	}
+
+	public function schedule_process()
+	{
+		$address = $this->input->post('address');
+		$schedule_on = $this->input->post('schedule_on');
+		$schedule_off = $this->input->post('schedule_off');
+
+		if($address != '' && is_numeric($schedule_on) && is_numeric($schedule_off)) {
+			if(($schedule_off + $schedule_on) > 60){
+				$this->session->set_flashdata('notif', 'Sum of schedule on and schedule off must not more than 60.');
+			} else {
+				// update database and crontab, and get current crontab
+				$crontab = $this->m_core->edit_schedule($address, $schedule_on, $schedule_off);
+
+				$string = '';
+				foreach ($crontab->result() as $row) {
+					$string .= $row->row . "\n";
+				}
+
+				// write to file
+				echo shell_exec("echo '".$string."' >> coba");
+				// execute crontab
+				echo shell_exec("crontab coba");
+			
+				$this->session->set_flashdata('notif', 'Successfully updated device schedule.');
+			}
+		}
+
+		redirect('dashboard/view/'.$address);
 	}
 
 	public function delete($address = '')

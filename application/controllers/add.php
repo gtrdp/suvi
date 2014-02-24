@@ -20,6 +20,8 @@ class Add extends CI_Controller {
 		$data['notif'] = $this->session->flashdata('notif');
 		$data['type'] = 'Add New';
 		$data['action'] = site_url('add/process');
+		$data['button'] = 'Add Device';
+		$data['disabled'] = '';
 
 		// Variable for
 		$this->load->template('v_add', $data);
@@ -49,6 +51,8 @@ class Add extends CI_Controller {
 		$data['type'] = 'Edit';
 		$data['device'] = $this->m_core->get_device($address)->row();
 		$data['action'] = site_url('add/edit_process');
+		$data['button'] = 'Edit Device';
+		$data['disabled'] = 'disabled';
 
 		// Variable for
 		$this->load->template('v_add', $data);
@@ -60,11 +64,12 @@ class Add extends CI_Controller {
 		$description = $this->input->post('description');
 
 		if($address != '' && $description != '') {
-			$this->m_core->add_device($address, $description);
-			$this->session->set_flashdata('notif', 'Device has been successfully inserted!');
+			echo $address .' '.$description;
+			$this->m_core->edit_device($address, $description);
+			$this->session->set_flashdata('notif', 'Device has been successfully edited!');
 		}
 
-		redirect('add');
+		redirect('dashboard');
 	}
 }
 

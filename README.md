@@ -4,14 +4,24 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 To-Do
 -----
-* Scheduling.
-* Edit device (still connecting to insert).
+* Scheduling (fix).
 
 
 Development Log
 ---------------
 Mon Feb 24 11:23:34 WIB 2014
 * View device is now connected to database.
+* Graph is now connected to database.
+* Edit device OK.
+* How to set crontab using script:
+
+		http://stackoverflow.com/questions/878600/how-to-create-cronjob-using-bash
+
+* Delay in perl:
+
+		Time::HiRes::sleep(1); #sleep 1 second
+
+* Add scheduling feature (beta).
 
 ---
 

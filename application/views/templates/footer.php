@@ -58,7 +58,7 @@
         });
         <?php if(isset($address)): ?>
         // Morris Area Chart
-        Morris.Area({
+        chart = Morris.Area({
             element: 'hero-area',
             data: [
             <?php
