@@ -1,4 +1,0 @@
-@hourly php /var/www/suvi/script/update-db.php
-*/60 * * * * sudo perl /var/www/suvi/script/schedule.pl 28FC922 2400
-*/2 * * * * sudo perl /var/www/suvi/script/schedule.pl 29C5129 60
-

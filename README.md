@@ -4,11 +4,16 @@ Smart bUilding for energy saVing in Indonesia. &copy; 2014
 
 To-Do
 -----
-* Scheduling (fix).
+* Scheduling (bug fixes).
 
 
 Development Log
 ---------------
+Thu Feb 27 11:07:33 WIB 2014
+* Added remove scheduling feature by inserting 0 values.
+
+---
+
 Mon Feb 24 11:23:34 WIB 2014
 * View device is now connected to database.
 * Graph is now connected to database.

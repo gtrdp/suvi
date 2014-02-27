@@ -91,22 +91,32 @@ class M_core extends CI_Model {
             $sum = $schedule_on + $schedule_off;
 
             if($this->db->count_all_results() > 0) {
-                // update
-                $data = array(
-                            'device_address' => substr($address, 1),
-                            'row' => '*/'.$sum.' * * * * sudo perl /var/www/suvi/script/schedule.pl '.$address.' '.$schedule_on*60
-                        );
+                if($schedule_on == 0 || $schedule_off == 0){
+                    // remove cron if schedule is 0
+                    $this->db->delete('crontab', array('device_address' => substr($address, 1))); 
+                } else {
+                    // update
+                    $data = array(
+                                'device_address' => substr($address, 1),
+                                'row' => '*/'.$sum.' * * * * sudo perl /var/www/suvi/script/schedule.pl '.$address.' '.$schedule_on*60
+                            );
 
-                $this->db->where('device_address', substr($address, 1));
-                $this->db->update('crontab', $data);
+                    $this->db->where('device_address', substr($address, 1));
+                    $this->db->update('crontab', $data);
+                }
             } else {
-                // insert
-                $data = array(
-                            'device_address' => substr($address, 1),
-                            'row' => '*/'.$sum.' * * * * sudo perl /var/www/suvi/script/schedule.pl '.$address.' '.$schedule_on*60
-                        );
+                if($schedule_on == 0 || $schedule_off == 0){
+                    // remove cron if schedule is 0
+                    $this->db->delete('crontab', array('device_address' => substr($address, 1))); 
+                }else{
+                    // insert
+                    $data = array(
+                                'device_address' => substr($address, 1),
+                                'row' => '*/'.$sum.' * * * * sudo perl /var/www/suvi/script/schedule.pl '.$address.' '.$schedule_on*60
+                            );
 
-                $this->db->insert('crontab', $data);
+                    $this->db->insert('crontab', $data);
+                }
             }
 
             // fetch all crontab

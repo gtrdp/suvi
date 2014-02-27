@@ -78,10 +78,11 @@ class Dashboard extends CI_Controller {
 				}
 
 				// write to file
-				shell_exec("rm coba");
-				echo shell_exec("echo '".$string."' >> coba");
+				echo shell_exec("echo '".$string."' >> temp");
 				// execute crontab
-				echo shell_exec("crontab coba");
+				echo shell_exec("crontab temp");
+				// remove temp files
+				shell_exec("rm temp");
 			
 				$this->session->set_flashdata('notif', 'Successfully updated device schedule.');
 			}
